@@ -1,210 +1,48 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
+    "cc_home": {
+      "type": "cc-one-product-home",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "hero_eyebrow": "Central Collective",
+        "hero_heading": "A calm, modern humidifier for everyday comfort.",
+        "hero_subheading": "Designed for bedrooms, desk setups, and small rooms with whisper-quiet performance.",
+        "primary_label": "Shop now",
+        "secondary_label": "Learn more",
+        "variants_heading": "Choose your finish",
+        "benefits_heading": "Why customers love it",
+        "spotlight_heading": "Product spotlight",
+        "bullet_1": "Better air comfort",
+        "bullet_2": "Quiet operation",
+        "bullet_3": "Modern room design",
+        "bullet_4": "Easy everyday use",
+        "spotlight_button": "Add to cart",
+        "lifestyle_heading": "Fits naturally into calm spaces",
+        "lifestyle_text": "Built for modern bedrooms and desks with premium understated styling.",
+        "faq_heading": "Frequently asked questions"
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
+        "variant_1": {"type":"variant","settings":{"title":"Cloud White"}},
+        "variant_2": {"type":"variant","settings":{"title":"Stone Grey"}},
+        "variant_3": {"type":"variant","settings":{"title":"Soft Beige"}},
+        "benefit_1": {"type":"benefit","settings":{"title":"Better air comfort","text":"Helps keep your bedroom and workspace feeling comfortable all day."}},
+        "benefit_2": {"type":"benefit","settings":{"title":"Quiet operation","text":"Low-noise airflow designed for sleep, focus, and calm spaces."}},
+        "benefit_3": {"type":"benefit","settings":{"title":"Modern room design","text":"A minimal shape and soft tones that blend with contemporary interiors."}},
+        "benefit_4": {"type":"benefit","settings":{"title":"Easy everyday use","text":"Simple controls and practical maintenance for daily routines."}},
+        "feature_1": {"type":"feature_banner","settings":{"title":"Whisper-quiet nights","text":"Sleep-ready performance with clean, modern styling."}},
+        "feature_2": {"type":"feature_banner","settings":{"title":"Desk-ready calm","text":"Compact comfort for work-from-home and focused routines."}},
+        "feature_3": {"type":"feature_banner","settings":{"title":"Soft modern finishes","text":"Neutral color options designed for premium interiors."}},
+        "trust_1": {"type":"trust","settings":{"title":"Fast shipping","text":"Orders processed quickly with reliable delivery updates."}},
+        "trust_2": {"type":"trust","settings":{"title":"Secure checkout","text":"Safe payments and trusted checkout experience."}},
+        "trust_3": {"type":"trust","settings":{"title":"Easy returns","text":"Straightforward return support if needed."}},
+        "trust_4": {"type":"trust","settings":{"title":"Customer support","text":"Friendly help whenever you need setup or product guidance."}},
+        "faq_1": {"type":"faq","settings":{"question":"How long does shipping take?","answer":"Most orders ship within 1–2 business days and include tracking."}},
+        "faq_2": {"type":"faq","settings":{"question":"Can I return my humidifier?","answer":"Yes, we offer an easy return policy. Check your policy page for full details."}},
+        "faq_3": {"type":"faq","settings":{"question":"Is it suitable for bedrooms?","answer":"Yes, the humidifier is designed for quiet use in bedrooms and small rooms."}},
+        "faq_4": {"type":"faq","settings":{"question":"How do I contact support?","answer":"Use the contact page or email support for setup and troubleshooting help."}}
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "block_order": ["variant_1","variant_2","variant_3","benefit_1","benefit_2","benefit_3","benefit_4","feature_1","feature_2","feature_3","trust_1","trust_2","trust_3","trust_4","faq_1","faq_2","faq_3","faq_4"]
     }
   },
-  "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
-  ]
+  "order": ["cc_home"]
 }
