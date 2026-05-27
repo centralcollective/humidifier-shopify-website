@@ -23,7 +23,7 @@
           | image_tag: class: 'cc-home__image', loading: 'lazy', alt: section.settings.hero_heading
         }}
       {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'cc-home__placeholder' }}
+        <img src="{{ 'cc-hero-humidifier.svg' | asset_url }}" class="cc-home__image" loading="lazy" alt="{{ section.settings.hero_heading | escape }}" width="1600" height="1000">
       {% endif %}
     </div>
   </div>
@@ -34,8 +34,15 @@
       {% for block in section.blocks %}
         {% if block.type == 'variant' %}
           <article class="cc-card" {{ block.shopify_attributes }}>
+            {% assign variant_fallback = 'cc-variant-aqua.svg' %}
+            {% case forloop.index0 %}
+              {% when 1 %}{% assign variant_fallback = 'cc-variant-dark-blue.svg' %}
+              {% when 2 %}{% assign variant_fallback = 'cc-variant-soft-pink.svg' %}
+            {% endcase %}
             {% if block.settings.image %}
-              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title }}
+              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'cc-card__media', alt: block.settings.title }}
+            {% else %}
+              <img src="{{ variant_fallback | asset_url }}" class="cc-card__media" loading="lazy" alt="{{ block.settings.title | escape }}" width="900" height="900">
             {% endif %}
             <h3>{{ block.settings.title }}</h3>
           </article>
@@ -66,14 +73,16 @@
           {{
             section.settings.spotlight_image
             | image_url: width: 1800
-            | image_tag: loading: 'lazy', alt: section.settings.spotlight_heading
+            | image_tag: loading: 'lazy', class: 'cc-spotlight__image', alt: section.settings.spotlight_heading
           }}
         {% elsif featured_product and featured_product.featured_image %}
           {{
             featured_product.featured_image
             | image_url: width: 1800
-            | image_tag: loading: 'lazy', alt: featured_product.title
+            | image_tag: loading: 'lazy', class: 'cc-spotlight__image', alt: featured_product.title
           }}
+        {% else %}
+          <img src="{{ 'cc-spotlight.svg' | asset_url }}" class="cc-spotlight__image" loading="lazy" alt="{{ section.settings.spotlight_heading | escape }}" width="1400" height="1000">
         {% endif %}
       </div>
       <div>
@@ -103,8 +112,15 @@
     {% for block in section.blocks %}
       {% if block.type == 'feature_banner' %}
         <article class="cc-banner" {{ block.shopify_attributes }}>
+          {% assign feature_fallback = 'cc-feature-quiet.svg' %}
+          {% case forloop.index0 %}
+            {% when 1 %}{% assign feature_fallback = 'cc-feature-air-comfort.svg' %}
+            {% when 2 %}{% assign feature_fallback = 'cc-feature-modern-design.svg' %}
+          {% endcase %}
           {% if block.settings.image %}
-            {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+            {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: block.settings.title }}
+          {% else %}
+            <img src="{{ feature_fallback | asset_url }}" class="cc-banner__image" loading="lazy" alt="{{ block.settings.title | escape }}" width="1200" height="760">
           {% endif %}
           <div>
             <h3>{{ block.settings.title }}</h3>
@@ -121,8 +137,10 @@
         {{
           section.settings.lifestyle_image
           | image_url: width: 2000
-          | image_tag: loading: 'lazy', alt: section.settings.lifestyle_heading
+          | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: section.settings.lifestyle_heading
         }}
+      {% else %}
+        <img src="{{ 'cc-lifestyle-calm-room.svg' | asset_url }}" class="cc-banner__image" loading="lazy" alt="{{ section.settings.lifestyle_heading | escape }}" width="1600" height="900">
       {% endif %}
       <div>
         <h2>{{ section.settings.lifestyle_heading }}</h2>

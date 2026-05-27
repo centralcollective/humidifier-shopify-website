@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title>Central Collective humidifier hero visual</title>
+  <desc>Minimal premium humidifier silhouette with soft mist on a calm neutral background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9faf8"/>
+      <stop offset="1" stop-color="#ece9e3"/>
+    </linearGradient>
+    <linearGradient id="tank" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8edf4" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#f8fdff" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8ebef"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="800" cy="760" rx="290" ry="56" fill="#d7dbe0" opacity="0.55"/>
+  <rect x="610" y="280" width="380" height="440" rx="160" fill="url(#body)"/>
+  <rect x="650" y="320" width="300" height="240" rx="120" fill="url(#tank)" stroke="#b9d5df"/>
+  <ellipse cx="800" cy="680" rx="220" ry="50" fill="#f1f3f5" stroke="#d6dae0"/>
+  <path d="M760 250c15-28 15-62 0-90" stroke="#bdd4df" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M810 230c14-24 14-54 0-80" stroke="#c7dbe4" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.65"/>
+  <path d="M855 250c12-22 12-50 0-72" stroke="#d0e1e8" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
+</svg>
