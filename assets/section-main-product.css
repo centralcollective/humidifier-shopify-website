@@ -1492,3 +1492,28 @@ a.product__text {
     border: none;
   }
 }
+
+.product-benefits,
+.product-trust {
+  margin: 0;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  background: #f7f8fa;
+  border: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.product-benefits {
+  padding-left: 2.2rem;
+}
+
+.product-benefits li {
+  margin-bottom: 0.7rem;
+}
+
+.product-trust p {
+  margin: 0 0 0.6rem;
+}
+
+.product-trust p:last-child {
+  margin-bottom: 0;
+}

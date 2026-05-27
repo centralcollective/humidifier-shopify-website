@@ -1,0 +1,145 @@
+.cc-home {
+  background: #f6f7f8;
+  color: #151515;
+  padding: 2rem 0 4rem;
+}
+
+.cc-home__hero {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.cc-home__hero-content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin: 0.2rem 0 1rem;
+}
+
+.cc-home__subheading {
+  font-size: 1.05rem;
+  max-width: 48ch;
+  color: #444;
+}
+
+.cc-home__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cc-home__hero-media,
+.cc-card,
+.cc-banner,
+.cc-spotlight {
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cc-home__image,
+.cc-banner img,
+.cc-spotlight img,
+.cc-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cc-home__section {
+  margin-top: 3rem;
+}
+
+.cc-home__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.cc-home__grid--variants {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.cc-home__grid--benefits {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.cc-card {
+  padding: 1.2rem;
+  border: 1px solid #e8eaed;
+}
+
+.cc-card--benefit p {
+  color: #4d4d4d;
+}
+
+.cc-spotlight {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e8eaed;
+  align-items: center;
+}
+
+.cc-spotlight ul {
+  padding-left: 1.2rem;
+}
+
+.cc-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.cc-home__grid--feature-banners {
+  grid-template-columns: 1fr;
+}
+
+.cc-banner {
+  position: relative;
+}
+
+.cc-banner div {
+  padding: 1.2rem;
+}
+
+.cc-home__trust {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.cc-home__faq details summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cc-home__faq details p {
+  margin-top: 0.6rem;
+  color: #555;
+}
+
+@media screen and (min-width: 750px) {
+  .cc-home {
+    padding: 3rem 0 5rem;
+  }
+
+  .cc-home__hero {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2rem;
+  }
+
+  .cc-home__grid--feature-banners {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cc-spotlight {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .cc-home .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
