@@ -1,0 +1,213 @@
+{{ 'section-cc-one-product-home.css' | asset_url | stylesheet_tag }}
+
+<section class="cc-home color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width cc-home__hero">
+    <div class="cc-home__hero-content">
+      <p class="cc-home__eyebrow">{{ section.settings.hero_eyebrow }}</p>
+      <h1>{{ section.settings.hero_heading }}</h1>
+      <p class="cc-home__subheading">{{ section.settings.hero_subheading }}</p>
+      <div class="cc-home__buttons">
+        {% if section.settings.primary_label != blank %}
+          <a class="button" href="{{ section.settings.primary_link | default: '#' }}">{{ section.settings.primary_label }}</a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank %}
+          <a class="button button--secondary" href="{{ section.settings.secondary_link | default: '#' }}">{{ section.settings.secondary_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="cc-home__hero-media">
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 1800
+          | image_tag: class: 'cc-home__image', loading: 'lazy', alt: section.settings.hero_heading
+        }}
+      {% else %}
+        <img src="{{ 'cc-hero-humidifier.svg' | asset_url }}" alt="{{ section.settings.hero_heading | escape }}" class="cc-home__image" loading="lazy" width="1600" height="900">
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="page-width cc-home__section">
+    <h2>{{ section.settings.variants_heading }}</h2>
+    <div class="cc-home__grid cc-home__grid--variants">
+      {% for block in section.blocks %}
+        {% if block.type == 'variant' %}
+          <article class="cc-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title }}
+            {% else %}
+              {% assign variant_title = block.settings.title | downcase %}
+              {% assign variant_asset = 'cc-variant-aqua.svg' %}
+              {% if variant_title contains 'dark' or variant_title contains 'blue' %}{% assign variant_asset = 'cc-variant-darkblue.svg' %}{% endif %}
+              {% if variant_title contains 'pink' or variant_title contains 'rose' %}{% assign variant_asset = 'cc-variant-softpink.svg' %}{% endif %}
+              <img src="{{ variant_asset | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="900" height="1100">
+            {% endif %}
+            <h3>{{ block.settings.title }}</h3>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="page-width cc-home__section">
+    <h2>{{ section.settings.benefits_heading }}</h2>
+    <div class="cc-home__grid cc-home__grid--benefits">
+      {% for block in section.blocks %}
+        {% if block.type == 'benefit' %}
+          <article class="cc-card cc-card--benefit" {{ block.shopify_attributes }}>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% assign featured_product = section.settings.featured_product %}
+  <div class="page-width cc-home__section">
+    <div class="cc-spotlight">
+      <div>
+        {% if section.settings.spotlight_image %}
+          {{
+            section.settings.spotlight_image
+            | image_url: width: 1800
+            | image_tag: loading: 'lazy', alt: section.settings.spotlight_heading
+          }}
+        {% elsif featured_product and featured_product.featured_image %}
+          {{
+            featured_product.featured_image
+            | image_url: width: 1800
+            | image_tag: loading: 'lazy', alt: featured_product.title
+          }}
+        {% else %}
+          <img src="{{ 'cc-spotlight-launch.svg' | asset_url }}" alt="{{ section.settings.spotlight_heading | escape }}" loading="lazy" width="1400" height="900">
+        {% endif %}
+      </div>
+      <div>
+        <h2>{{ section.settings.spotlight_heading }}</h2>
+        <ul>
+          {% for i in (1..4) %}
+            {% assign key = 'bullet_' | append: i %}
+            {% if section.settings[key] != blank %}
+              <li>{{ section.settings[key] }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% if featured_product %}
+          <p class="cc-price">{{ featured_product.price | money }}</p>
+          {% form 'product', featured_product, class: 'product-form' %}
+            <input type="hidden" name="id" value="{{ featured_product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="button" {% unless featured_product.available %}disabled{% endunless %}>
+              {{ section.settings.spotlight_button }}
+            </button>
+          {% endform %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="page-width cc-home__section cc-home__grid cc-home__grid--feature-banners">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature_banner' %}
+        <article class="cc-banner" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+          {% else %}
+            {% assign feature_title = block.settings.title | downcase %}
+            {% assign feature_asset = 'cc-feature-modern-room.svg' %}
+            {% if feature_title contains 'quiet' %}{% assign feature_asset = 'cc-feature-quiet.svg' %}{% endif %}
+            {% if feature_title contains 'air' or feature_title contains 'comfort' %}{% assign feature_asset = 'cc-feature-air-comfort.svg' %}{% endif %}
+            <img src="{{ feature_asset | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="1600" height="700">
+          {% endif %}
+          <div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="page-width cc-home__section">
+    <article class="cc-banner cc-banner--lifestyle">
+      {% if section.settings.lifestyle_image %}
+        {{
+          section.settings.lifestyle_image
+          | image_url: width: 2000
+          | image_tag: loading: 'lazy', alt: section.settings.lifestyle_heading
+        }}
+      {% else %}
+        <img src="{{ 'cc-lifestyle-calm-room.svg' | asset_url }}" alt="{{ section.settings.lifestyle_heading | escape }}" loading="lazy" width="1600" height="900">
+      {% endif %}
+      <div>
+        <h2>{{ section.settings.lifestyle_heading }}</h2>
+        <p>{{ section.settings.lifestyle_text }}</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-width cc-home__section cc-home__trust">
+    {% for block in section.blocks %}
+      {% if block.type == 'trust' %}
+        <div class="cc-card" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="page-width cc-home__section">
+    <h2>{{ section.settings.faq_heading }}</h2>
+    <div class="cc-home__faq">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          <details class="cc-card" {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.question }}</summary>
+            <p>{{ block.settings.answer }}</p>
+          </details>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CC One Product Home",
+  "settings": [
+    {"type":"color_scheme","id":"color_scheme","default":"scheme-1","label":"Color scheme"},
+    {"type":"text","id":"hero_eyebrow","default":"Central Collective","label":"Hero eyebrow"},
+    {"type":"text","id":"hero_heading","default":"A calm, modern humidifier for everyday comfort.","label":"Hero heading"},
+    {"type":"textarea","id":"hero_subheading","default":"Designed for bedrooms, desk setups, and small rooms with whisper-quiet performance.","label":"Hero subheading"},
+    {"type":"image_picker","id":"hero_image","label":"Hero image"},
+    {"type":"text","id":"primary_label","default":"Shop now","label":"Primary button label"},
+    {"type":"url","id":"primary_link","label":"Primary button link"},
+    {"type":"text","id":"secondary_label","default":"Learn more","label":"Secondary button label"},
+    {"type":"url","id":"secondary_link","label":"Secondary button link"},
+    {"type":"text","id":"variants_heading","default":"Choose your finish","label":"Variants heading"},
+    {"type":"text","id":"benefits_heading","default":"Why customers love it","label":"Benefits heading"},
+    {"type":"product","id":"featured_product","label":"Featured product"},
+    {"type":"text","id":"spotlight_heading","default":"Product spotlight","label":"Spotlight heading"},
+    {"type":"image_picker","id":"spotlight_image","label":"Spotlight image override"},
+    {"type":"text","id":"bullet_1","default":"Better air comfort","label":"Feature bullet 1"},
+    {"type":"text","id":"bullet_2","default":"Quiet operation","label":"Feature bullet 2"},
+    {"type":"text","id":"bullet_3","default":"Modern room design","label":"Feature bullet 3"},
+    {"type":"text","id":"bullet_4","default":"Easy everyday use","label":"Feature bullet 4"},
+    {"type":"text","id":"spotlight_button","default":"Add to cart","label":"Spotlight button label"},
+    {"type":"image_picker","id":"lifestyle_image","label":"Lifestyle image"},
+    {"type":"text","id":"lifestyle_heading","default":"Fits naturally into calm spaces","label":"Lifestyle heading"},
+    {"type":"textarea","id":"lifestyle_text","default":"Built for modern bedrooms and desks with premium understated styling.","label":"Lifestyle text"},
+    {"type":"text","id":"faq_heading","default":"Frequently asked questions","label":"FAQ heading"}
+  ],
+  "blocks":[
+    {"type":"variant","name":"Color variant","limit":6,"settings":[{"type":"image_picker","id":"image","label":"Variant image"},{"type":"text","id":"title","default":"Sand White","label":"Color name"}]},
+    {"type":"benefit","name":"Benefit","limit":6,"settings":[{"type":"text","id":"title","default":"Better air comfort","label":"Title"},{"type":"textarea","id":"text","default":"Helps maintain comfortable moisture levels in smaller spaces.","label":"Text"}]},
+    {"type":"feature_banner","name":"Feature banner","limit":3,"settings":[{"type":"image_picker","id":"image","label":"Banner image"},{"type":"text","id":"title","default":"Silent through the night","label":"Title"},{"type":"textarea","id":"text","default":"Clean, minimalist design with low-noise performance.","label":"Text"}]},
+    {"type":"trust","name":"Trust item","limit":4,"settings":[{"type":"text","id":"title","default":"Fast shipping","label":"Title"},{"type":"text","id":"text","default":"Quick order processing and delivery updates.","label":"Text"}]},
+    {"type":"faq","name":"FAQ item","limit":6,"settings":[{"type":"text","id":"question","default":"How long does shipping take?","label":"Question"},{"type":"textarea","id":"answer","default":"Most orders ship within 1–2 business days.","label":"Answer"}]}
+  ],
+  "presets":[{"name":"CC One Product Home","blocks":[{"type":"variant"},{"type":"variant"},{"type":"variant"},{"type":"benefit"},{"type":"benefit"},{"type":"benefit"},{"type":"benefit"},{"type":"feature_banner"},{"type":"feature_banner"},{"type":"feature_banner"},{"type":"trust"},{"type":"trust"},{"type":"trust"},{"type":"trust"},{"type":"faq"},{"type":"faq"},{"type":"faq"},{"type":"faq"}]}]
+}
+{% endschema %}
