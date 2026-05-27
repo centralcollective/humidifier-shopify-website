@@ -17,7 +17,11 @@
     </div>
     <div class="cc-home__hero-media">
       {% if section.settings.hero_image != blank %}
-        {{ section.settings.hero_image | image_url: width: 1800 | image_tag: class: 'cc-home__image', loading: 'lazy' }}
+        {{
+          section.settings.hero_image
+          | image_url: width: 1800
+          | image_tag: class: 'cc-home__image', loading: 'lazy', alt: section.settings.hero_heading
+        }}
       {% else %}
         {{ 'lifestyle-1' | placeholder_svg_tag: 'cc-home__placeholder' }}
       {% endif %}
@@ -31,7 +35,7 @@
         {% if block.type == 'variant' %}
           <article class="cc-card" {{ block.shopify_attributes }}>
             {% if block.settings.image %}
-              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title }}
             {% endif %}
             <h3>{{ block.settings.title }}</h3>
           </article>
@@ -46,21 +50,30 @@
       {% for block in section.blocks %}
         {% if block.type == 'benefit' %}
           <article class="cc-card cc-card--benefit" {{ block.shopify_attributes }}>
-            <h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
           </article>
         {% endif %}
       {% endfor %}
     </div>
   </div>
 
-  {% assign featured_product = all_products[section.settings.featured_product] %}
+  {% assign featured_product = section.settings.featured_product %}
   <div class="page-width cc-home__section">
     <div class="cc-spotlight">
       <div>
         {% if section.settings.spotlight_image %}
-          {{ section.settings.spotlight_image | image_url: width: 1800 | image_tag: loading: 'lazy' }}
+          {{
+            section.settings.spotlight_image
+            | image_url: width: 1800
+            | image_tag: loading: 'lazy', alt: section.settings.spotlight_heading
+          }}
         {% elsif featured_product and featured_product.featured_image %}
-          {{ featured_product.featured_image | image_url: width: 1800 | image_tag: loading: 'lazy' }}
+          {{
+            featured_product.featured_image
+            | image_url: width: 1800
+            | image_tag: loading: 'lazy', alt: featured_product.title
+          }}
         {% endif %}
       </div>
       <div>
@@ -68,14 +81,18 @@
         <ul>
           {% for i in (1..4) %}
             {% assign key = 'bullet_' | append: i %}
-            {% if section.settings[key] != blank %}<li>{{ section.settings[key] }}</li>{% endif %}
+            {% if section.settings[key] != blank %}
+              <li>{{ section.settings[key] }}</li>
+            {% endif %}
           {% endfor %}
         </ul>
         {% if featured_product %}
           <p class="cc-price">{{ featured_product.price | money }}</p>
           {% form 'product', featured_product, class: 'product-form' %}
             <input type="hidden" name="id" value="{{ featured_product.selected_or_first_available_variant.id }}">
-            <button type="submit" class="button" {% unless featured_product.available %}disabled{% endunless %}>{{ section.settings.spotlight_button }}</button>
+            <button type="submit" class="button" {% unless featured_product.available %}disabled{% endunless %}>
+              {{ section.settings.spotlight_button }}
+            </button>
           {% endform %}
         {% endif %}
       </div>
@@ -86,8 +103,13 @@
     {% for block in section.blocks %}
       {% if block.type == 'feature_banner' %}
         <article class="cc-banner" {{ block.shopify_attributes }}>
-          {% if block.settings.image %}{{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy' }}{% endif %}
-          <div><h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+          {% endif %}
+          <div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
         </article>
       {% endif %}
     {% endfor %}
@@ -95,14 +117,28 @@
 
   <div class="page-width cc-home__section">
     <article class="cc-banner cc-banner--lifestyle">
-      {% if section.settings.lifestyle_image %}{{ section.settings.lifestyle_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}{% endif %}
-      <div><h2>{{ section.settings.lifestyle_heading }}</h2><p>{{ section.settings.lifestyle_text }}</p></div>
+      {% if section.settings.lifestyle_image %}
+        {{
+          section.settings.lifestyle_image
+          | image_url: width: 2000
+          | image_tag: loading: 'lazy', alt: section.settings.lifestyle_heading
+        }}
+      {% endif %}
+      <div>
+        <h2>{{ section.settings.lifestyle_heading }}</h2>
+        <p>{{ section.settings.lifestyle_text }}</p>
+      </div>
     </article>
   </div>
 
   <div class="page-width cc-home__section cc-home__trust">
     {% for block in section.blocks %}
-      {% if block.type == 'trust' %}<div class="cc-card" {{ block.shopify_attributes }}><h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>{% endif %}
+      {% if block.type == 'trust' %}
+        <div class="cc-card" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 
@@ -111,7 +147,10 @@
     <div class="cc-home__faq">
       {% for block in section.blocks %}
         {% if block.type == 'faq' %}
-          <details class="cc-card" {{ block.shopify_attributes }}><summary>{{ block.settings.question }}</summary><p>{{ block.settings.answer }}</p></details>
+          <details class="cc-card" {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.question }}</summary>
+            <p>{{ block.settings.answer }}</p>
+          </details>
         {% endif %}
       {% endfor %}
     </div>
