@@ -23,6 +23,7 @@
           | image_tag: class: 'cc-home__image', loading: 'lazy', alt: section.settings.hero_heading
         }}
       {% else %}
+        <img src="{{ 'cc-hero-humidifier.svg' | asset_url }}" class="cc-home__image" loading="lazy" alt="{{ section.settings.hero_heading | escape }}" width="1600" height="1000">
         {{ 'cc-hero-humidifier.svg' | asset_url | image_tag: class: 'cc-home__image', loading: 'lazy', alt: section.settings.hero_heading }}
       {% endif %}
     </div>
@@ -42,6 +43,7 @@
             {% if block.settings.image %}
               {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'cc-card__media', alt: block.settings.title }}
             {% else %}
+              <img src="{{ variant_fallback | asset_url }}" class="cc-card__media" loading="lazy" alt="{{ block.settings.title | escape }}" width="900" height="900">
               {{ variant_fallback | asset_url | image_tag: loading: 'lazy', class: 'cc-card__media', alt: block.settings.title }}
             {% endif %}
             <h3>{{ block.settings.title }}</h3>
@@ -82,6 +84,7 @@
             | image_tag: loading: 'lazy', class: 'cc-spotlight__image', alt: featured_product.title
           }}
         {% else %}
+          <img src="{{ 'cc-spotlight.svg' | asset_url }}" class="cc-spotlight__image" loading="lazy" alt="{{ section.settings.spotlight_heading | escape }}" width="1400" height="1000">
           {{ 'cc-spotlight.svg' | asset_url | image_tag: loading: 'lazy', class: 'cc-spotlight__image', alt: section.settings.spotlight_heading }}
         {% endif %}
       </div>
@@ -120,6 +123,7 @@
           {% if block.settings.image %}
             {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: block.settings.title }}
           {% else %}
+            <img src="{{ feature_fallback | asset_url }}" class="cc-banner__image" loading="lazy" alt="{{ block.settings.title | escape }}" width="1200" height="760">
             {{ feature_fallback | asset_url | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: block.settings.title }}
           {% endif %}
           <div>
@@ -140,6 +144,7 @@
           | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: section.settings.lifestyle_heading
         }}
       {% else %}
+        <img src="{{ 'cc-lifestyle-calm-room.svg' | asset_url }}" class="cc-banner__image" loading="lazy" alt="{{ section.settings.lifestyle_heading | escape }}" width="1600" height="900">
         {{ 'cc-lifestyle-calm-room.svg' | asset_url | image_tag: loading: 'lazy', class: 'cc-banner__image', alt: section.settings.lifestyle_heading }}
       {% endif %}
       <div>
