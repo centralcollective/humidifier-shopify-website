@@ -144,8 +144,26 @@
   }
 }
 
-.cc-home__hero-media { aspect-ratio: 16 / 9; }
-.cc-card img { aspect-ratio: 4 / 5; object-fit: cover; }
-.cc-banner img { aspect-ratio: 16 / 7; object-fit: cover; }
-.cc-spotlight img { aspect-ratio: 14 / 9; object-fit: cover; }
-.cc-banner--lifestyle img { aspect-ratio: 16 / 9; object-fit: cover; }
+.cc-home__hero-media {
+  aspect-ratio: 16 / 9;
+}
+
+.cc-card img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.cc-banner img {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+.cc-spotlight img {
+  aspect-ratio: 14 / 9;
+  object-fit: cover;
+}
+
+.cc-banner--lifestyle img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
