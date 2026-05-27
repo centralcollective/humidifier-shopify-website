@@ -38,12 +38,17 @@
 }
 
 .cc-home__image,
-.cc-banner img,
-.cc-spotlight img,
-.cc-card img {
+.cc-card__media,
+.cc-banner__image,
+.cc-spotlight__image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+}
+
+.cc-home__hero-media {
+  aspect-ratio: 16 / 10;
 }
 
 .cc-home__section {
@@ -68,6 +73,12 @@
   border: 1px solid #e8eaed;
 }
 
+.cc-card__media {
+  border-radius: 1rem;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 0.8rem;
+}
+
 .cc-card--benefit p {
   color: #4d4d4d;
 }
@@ -78,6 +89,11 @@
   padding: 1rem;
   border: 1px solid #e8eaed;
   align-items: center;
+}
+
+.cc-spotlight__image {
+  border-radius: 1rem;
+  aspect-ratio: 4 / 3;
 }
 
 .cc-spotlight ul {
@@ -95,6 +111,10 @@
 
 .cc-banner {
   position: relative;
+}
+
+.cc-banner__image {
+  aspect-ratio: 3 / 2;
 }
 
 .cc-banner div {
@@ -141,5 +161,13 @@
   .cc-home .button {
     width: 100%;
     justify-content: center;
+  }
+
+  .cc-home__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-spotlight {
+    grid-template-columns: 1fr;
   }
 }
