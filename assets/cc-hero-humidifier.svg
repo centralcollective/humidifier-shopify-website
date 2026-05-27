@@ -1,3 +1,34 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'>
-<defs><linearGradient id='bg' x1='0' x2='1'><stop offset='0' stop-color='#f7f8fa'/><stop offset='1' stop-color='#eceff3'/></linearGradient></defs>
-<rect width='1600' height='900' fill='url(#bg)'/><ellipse cx='1120' cy='720' rx='280' ry='56' fill='#d9dee6'/><rect x='1030' y='220' width='180' height='380' rx='88' fill='#b9dff0'/><rect x='1054' y='390' width='132' height='250' rx='60' fill='#ffffff' opacity='.75'/><rect x='985' y='180' width='270' height='510' rx='135' fill='none' stroke='#9fc7da' stroke-width='24'/><circle cx='1120' cy='215' r='64' fill='#dff2fb'/><path d='M1120 120 C1080 50 1040 40 1000 20 C1050 24 1120 40 1170 110' stroke='#d5e9f5' stroke-width='16' fill='none' stroke-linecap='round'/><text x='140' y='280' font-family='Arial,sans-serif' font-size='62' fill='#1f2733'>Central Collective Co</text><text x='140' y='360' font-family='Arial,sans-serif' font-size='34' fill='#4a5568'>Calm moisture for modern living spaces.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1450" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f9fbfd"/>
+      <stop offset="1" stop-color="#e8eef4"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1110 370) rotate(90) scale(310 330)">
+      <stop stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#dfe9f3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bodyAqua" x1="995" y1="280" x2="1210" y2="530" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d4efff"/>
+      <stop offset="1" stop-color="#9ed2ee"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="1060" y1="440" x2="1130" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#cde0ef" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="1110" cy="735" rx="282" ry="64" fill="#d7e0ea"/>
+  <rect x="962" y="188" width="296" height="540" rx="148" stroke="#a6c8dd" stroke-width="20"/>
+  <g transform="rotate(-22 1110 430)">
+    <rect x="1015" y="260" width="190" height="360" rx="92" fill="url(#bodyAqua)"/>
+    <circle cx="1108" cy="275" r="66" fill="#bfe4f8"/>
+    <rect x="1040" y="458" width="142" height="250" rx="64" fill="url(#glass)"/>
+    <circle cx="1087" cy="360" r="8" fill="#80aac2"/>
+    <circle cx="1120" cy="360" r="8" fill="#80aac2"/>
+  </g>
+  <ellipse cx="1110" cy="430" rx="390" ry="300" fill="url(#halo)"/>
+  <path d="M1124 194C1148 137 1188 101 1231 66" stroke="#d6ebf7" stroke-width="14" stroke-linecap="round"/>
+  <path d="M1148 185C1198 112 1241 83 1290 59" stroke="#d6ebf7" stroke-width="11" stroke-linecap="round"/>
+  <path d="M1170 182C1229 131 1286 108 1354 93" stroke="#d6ebf7" stroke-width="8" stroke-linecap="round"/>
+</svg>
